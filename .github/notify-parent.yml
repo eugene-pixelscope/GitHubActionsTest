@@ -1,0 +1,15 @@
+name: Notify Parent Repo
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify-parent:
+    runs-on: ubuntu-lastest
+    steps:
+    - name: Notify Parent Repo
+      run: |
+        curl -X POST -H "Authorization: token ${{ secrets.PARENT_REPO_TOKEN}}" \
+        -H "Accept: application/vnd.github.v3+json" \
+        
